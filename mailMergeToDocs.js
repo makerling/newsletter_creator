@@ -78,8 +78,8 @@ function mailMergeToDocs() {
       //DocumentApp.getActiveDocument().getBody().insertImage(0, img); 
       //regex find/replace to clean up extraneous junk from email body/replies
       var Message1 = ss.getRange(i+1,5).getValue();  
-      var Message2 = Message1.replace(/(\n)*{1,5}|(\n(?=>))|(\n\s)|(\r)|(\n(?=[a-z]))/g,' ');
-      var Message3 = Message2.replace(/\n(?=[a-z])| \> /g,' ');
+      //var Message2 = Message1.replace(/(\n)*{1,5}|(\n(?=>))|(\n\s)|(\r)|(\n(?=[a-z]))/g,' ');
+      var Message3 = Message1.replace(/\n(?=[a-z])| \> /g,' ');
       var Message4 = Message3.replace(/^(\*From:\*(.|\r\n|\n)*)/gm,''); 
       var Message6 = Message5.replace(/20\d*-\d*-\d*\s*\d*:\d*(.|\r\n|\n)*/gm,''); 
       var Message7 = Message6.replace(/[A-Za-z]{1,3}\s*[A-Za-z]{2,4}\s*\d*,\s*201\d.\s*[A-Za-z]{1,3}\s*\d*:\d*(.|\r\n|\n)*/gm,''); 
