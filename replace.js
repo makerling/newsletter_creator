@@ -1,7 +1,10 @@
 //this array variable stores all the members of the entity with the following information: email address, Team, first name, last name, first name(s) of household unit
 //first names of household unit are used because members didn't want their last name put on the newsletter, but last name is needed internally for sorting the entries
 var name = new Array ( );
-  name[0] = new Array ('name@email.com','team name','first name','last name','first & last name of couple');
+  //name[0] = new Array ('name@email.com','team name','first name','last name','first & last name of couple');
+  name[0] = new Array ('name@email.com','T1','Joe','Bradson','Joe & Donna Bradson');
+  name[1] = new Array ('name@email.com','T2','Jack','Greg','Jack & Sarah Greg');
+  name[2] = new Array ('name@email.com','T3','Brad','Jackson','Brad & Darlene Jackson');
   
 //This function populates the "editColumn" function, it will run 3 times with the 3 values in this function, once for each column that needs changing in the template
 function replace(){
