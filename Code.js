@@ -1,26 +1,7 @@
 //FOR NEW Account need to do following:
-//enable > Resources/Advanced Google Services > Gmail API and Drive API (also check on link to make sure they are activated in Google Cloud Platform API Dashboard)
-/** Build a menu item
-From https://developers.google.com/apps-script/guides/menus#menus_for_add-ons_in_google_docs_or_sheets 
-ToDo:
-- check names with communicator list 
-- catch inline pics
-- change green color to real green, remove alternative colors in rows
-**/
-//GLOBAL VARIABLES
-var active_sheet = 'mail merge'
-// Log the email address of the person running the script.
-var currentUser = Session.getActiveUser().getEmail();
-var currentDate = new Date().toDateString();
-
-//fill out following variables with document IDs from Google Drive
-//var fchCommunicatorTemplateId = '' //Google Doc template file testing
-var fchCommunicatorTemplateId = '' //Google Doc template file production
-//var fchCommunicatorTemplateIdVersionTwo = '' //for manual sending to be fixed later
-//var picsFolderId = ''; //pics folder testing 
-var picsFolderId = ''; //pics folder production 
-
-//******************************************************************************************************
+//enable > Resources/Advanced Google Services > Gmail API and Drive API 
+//(also check on link to make sure they are activated in Google Cloud Platform API Dashboard)
+//*******************************************************************************************
 
 function onOpen(e) {
   var menu = SpreadsheetApp.getUi().createMenu('communicator'); 

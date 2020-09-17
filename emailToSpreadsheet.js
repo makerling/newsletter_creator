@@ -8,7 +8,7 @@ function emailToSpreadsheet() {
   if (LastRow > 1) ss.getRange('A2:G' + LastRow).clearContent();  
   
   //filters messages 9 is the best time period, the -from sections eliminate emails sent from staff member or currentUser (word doc with finished Communicator)
-  var labelFilter = 'label:inbox-communicator newer_than:9d -from:' + currentUser; 
+  var labelFilter = 'label:newsletter newer_than:9d -from:' + currentUser; 
   var msgs = Gmail.Users.Messages.list('me', {q:labelFilter}).messages;
   var out=[], row=[];
   msgs.forEach(function (e)
