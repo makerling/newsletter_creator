@@ -8,7 +8,7 @@ function onOpen(e) {
   
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var menuEntries = [];
-  // When the user clicks on "addMenuExample" then "Menu Entry 1", the function function1 is executed.
+  // When the user clicks on "Newsletter" then "1 Insert Email text", the function pullingEmails is executed.
   menuEntries.push({name: "1 Insert Email text", functionName: "pullingEmails"});
   menuEntries.push(null); // line separator
   menuEntries.push({name: "2 Send as Word doc my Email", functionName: "sendingEmails"});

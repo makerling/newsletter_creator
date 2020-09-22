@@ -2,30 +2,23 @@ function emailToSpreadsheet() {
   var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   var ss = spreadsheet.getSheetByName(active_sheet);
   
-  //clearing spreadsheet of data before pulling text
+  // clearing spreadsheet of data before pulling text
   var LastRow = ss.getLastRow();
-  //Logger.log('LastRow is: '+LastRow)
   if (LastRow > 1) ss.getRange('A2:G' + LastRow).clearContent();  
   
-  //filters messages 9 is the best time period, the -from sections eliminate emails sent from staff member or currentUser (word doc with finished Communicator)
+  // filters messages newer than 9 days, eleiminates emails sent from staff member 
   var labelFilter = 'label:newsletter newer_than:9d -from:' + currentUser; 
   var msgs = Gmail.Users.Messages.list('me', {q:labelFilter}).messages;
-  var out=[], row=[];
+  var out = [], row = [];
   msgs.forEach(function (e)
   {
     var dat = GmailApp.getMessageById(e.id).getDate();
-    //need to strip out the names and <> from the from address, lookbehind doesn't work, so need to use 
+    //need to strip out the names and <> from the from address, lookbehind doesn't work with flavor of regex
     var raw_from = GmailApp.getMessageById(e.id).getFrom();
-    //Logger.log('raw_from is: ' + raw_from)
-    //regex_from = /<(.*?(?=>))/;
-    //from = raw_from.match(regex_from)[1];
     var from = raw_from.match(/[^@<\s\"]+@[^@\s>\"]+/).toString();
-    Logger.log('from is: ' + from)
-    var sub = GmailApp.getMessageById(e.id).getSubject();
     var msgplain = GmailApp.getMessageById(e.id).getPlainBody();
     var attachments = GmailApp.getMessageById(e.id).getAttachments();    
-    Logger.log('number of attachments: ' + attachments.length)
-    var links = '', linksfinal = ''
+    //var links = '', linksfinal = ''
     var links = [], linksfinal = [];
     if(attachments[0] == 'GmailAttachment')
     {      
