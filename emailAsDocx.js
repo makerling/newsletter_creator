@@ -1,7 +1,5 @@
 function emailAsDocx() {
-  //var document   = DocumentApp.openById(fchCommunicatorTemplateIdVersionTwo);
-  //var documentId = document.getId();
-  //var file = Drive.Files.get(documentId);
+
   var url  = 'https://docs.google.com/document/d/'+fchCommunicatorTemplateId+'/export?format=docx';
   var token = ScriptApp.getOAuthToken();
   var response = UrlFetchApp.fetch(url, {

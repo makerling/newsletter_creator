@@ -1,4 +1,4 @@
-//need to do for loop on each imageIDs to catch >1 picture attchmt
+//need to do for loop on each imageIDs to catch >1 picture attachment
 function addImages() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sheet = ss.getSheets()[0];
