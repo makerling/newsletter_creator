@@ -1,12 +1,4 @@
 function sort() {
-  
-  /**  Variables for customization:
-  
-  Each column to sort takes two variables: 
-      1) the column index (i.e. column A has a colum index of 1
-      2) Sort Ascending -- default is to sort ascending. Set to false to sort descending
-  
-  **/
 
   //Variable for column to sort first
   

@@ -4,7 +4,7 @@
 //*******************************************************************************************
 
 function onOpen(e) {
-  var menu = SpreadsheetApp.getUi().createMenu('communicator'); 
+  var menu = SpreadsheetApp.getUi().createMenu('newsletter'); 
 if (e && e.authMode == ScriptApp.AuthMode.NONE) {
     // Add a normal menu item (works in all authorization modes).
         menu.addItem('1 Insert Email text', 'pullingEmails');  

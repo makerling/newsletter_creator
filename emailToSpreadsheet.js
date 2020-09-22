@@ -13,20 +13,20 @@ function emailToSpreadsheet() {
   var out=[], row=[];
   msgs.forEach(function (e)
   {
-    dat = GmailApp.getMessageById(e.id).getDate();
+    var dat = GmailApp.getMessageById(e.id).getDate();
     //need to strip out the names and <> from the from address, lookbehind doesn't work, so need to use 
-    raw_from = GmailApp.getMessageById(e.id).getFrom();
+    var raw_from = GmailApp.getMessageById(e.id).getFrom();
     //Logger.log('raw_from is: ' + raw_from)
     //regex_from = /<(.*?(?=>))/;
     //from = raw_from.match(regex_from)[1];
-    from = raw_from.match(/[^@<\s\"]+@[^@\s>\"]+/).toString();
+    var from = raw_from.match(/[^@<\s\"]+@[^@\s>\"]+/).toString();
     Logger.log('from is: ' + from)
-    sub = GmailApp.getMessageById(e.id).getSubject();
-    msgplain = GmailApp.getMessageById(e.id).getPlainBody();
-    attachments = GmailApp.getMessageById(e.id).getAttachments();    
+    var sub = GmailApp.getMessageById(e.id).getSubject();
+    var msgplain = GmailApp.getMessageById(e.id).getPlainBody();
+    var attachments = GmailApp.getMessageById(e.id).getAttachments();    
     Logger.log('number of attachments: ' + attachments.length)
-    links = '', linksfinal = ''
-    links = [], linksfinal = [];
+    var links = '', linksfinal = ''
+    var links = [], linksfinal = [];
     if(attachments[0] == 'GmailAttachment')
     {      
       for(var k in attachments)
@@ -35,29 +35,29 @@ function emailToSpreadsheet() {
         Logger.log('content type is: ' + contentType)
         if (contentType == ("image/jpeg" || "image/jpg" || "image/bmp" || "image/gif" || "image/png" || "image/svg")) { 
           Logger.log('What type of attachment is this attachment: ' + contentType)
-          attachment = attachments[k];
-          attch = attachment.copyBlob();
-          folder = DriveApp.getFolderById(picsFolderId)
-          link = folder.createFile(attch).getId(); 
+          var attachment = attachments[k];
+          var attch = attachment.copyBlob();
+          var folder = DriveApp.getFolderById(picsFolderId)
+          var link = folder.createFile(attch).getId(); 
           Logger.log('link for pics is: *********** ' + link)  
           links.push(link)              
           linksfinal.push(links);
-          linksfinal2 = '' + linksfinal
-          linksfinal3 = linksfinal2.replace(/,*$/, "");
-          msgfinal = linksfinal3 + " " + msgplain
-          row=[from,from,from,from,msgfinal,linksfinal3,dat];
+          var linksfinal2 = '' + linksfinal
+          var linksfinal3 = linksfinal2.replace(/,*$/, "");
+          var msgfinal = linksfinal3 + " " + msgplain
+          var row = [from,from,from,from,msgfinal,linksfinal3,dat];
           Logger.log(row)
         } else
         {
           Logger.log('unsupported image file, need to figure out manually what it is: ' + contentType)
-          linksfinal2 = ""
-          row=[from,from,from,from,msgplain,'',dat];            
+          var linksfinal2 = ""
+          var row = [from,from,from,from,msgplain,'',dat];            
           }
       }
     } else
     {
-        linksfinal2 = ""
-        row=[from,from,from,from,msgplain,'',dat];          
+        var linksfinal2 = ""
+        var row = [from,from,from,from,msgplain,'',dat];          
     }  
     out.push(row);  
     GmailApp.getMessageById(e.id).markRead();
