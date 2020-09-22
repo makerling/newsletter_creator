@@ -2,9 +2,9 @@
 //first names of household unit are used because members didn't want their last name put on the newsletter, but last name is needed internally for sorting the entries
 var name = new Array ( );
   //name[0] = new Array ('name@email.com','team name','first name','last name','first & last name of couple');
- var name[0] = new Array ('optimizer@vanderling.com','T1','Joe','Bradson','Joe & Donna Bradson');
- var name[1] = new Array ('voip.ms@vanderling.com','T2','Jack','Greg','Jack & Sarah Greg');
- var name[2] = new Array ('zipcar@vanderling.com','T3','Brad','Jackson','Brad & Darlene Jackson');
+ name[0] = new Array ('optimizer@vanderling.com','T1','Joe','Bradson','Joe & Donna Bradson');
+ name[1] = new Array ('voip.ms@vanderling.com','T2','Jack','Greg','Jack & Sarah Greg');
+ name[2] = new Array ('zipcar@vanderling.com','T3','Brad','Jackson','Brad & Darlene Jackson');
   
 //This function populates the "editColumn" function, it will run 3 times with the 3 values in this function, once for each column that needs changing in the template
 function replace(){
